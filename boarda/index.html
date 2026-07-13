@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Boarda | yamanari.dev</title>
+    <meta name="description" content="Boarda introduction page: a realtime board with one current note.">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="shell nav" aria-label="Primary navigation">
+        <a class="brand" href="/">yamanari.dev</a>
+        <div class="nav-links">
+          <a href="/web-quality-crawler/">Web Quality Crawler</a>
+          <a href="/boarda/">Boarda</a>
+          <a href="/idle-clock/">Idle Clock</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="project-hero boarda-hero">
+        <div class="shell project-hero-grid">
+          <div>
+            <p class="eyebrow">Realtime board</p>
+            <h1>Boarda</h1>
+            <p class="hero-lead">
+              時系列の投稿一覧ではなく、今いちばん表に貼られている一枚だけを見る体験に絞った、
+              小さな共有場所です。
+            </p>
+            <div class="action-row">
+              <a href="https://boarda.yamanari.dev">Boarda app</a>
+            </div>
+          </div>
+          <div class="note-preview" aria-label="Boardaの体験イメージ">
+            <span>最新の紙</span>
+            <p>いま掲示板に貼られている一枚だけを、全員で見ています。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell two-column">
+          <div>
+            <p class="eyebrow">Concept</p>
+            <h2>履歴ではなく、現在地を共有する</h2>
+          </div>
+          <p>
+            軽い告知、作業中の合図、イベント中の一言掲示など、履歴より現在地を共有したい
+            場面向けのプロトタイプです。
+          </p>
+        </div>
+      </section>
+
+      <section class="section muted">
+        <div class="shell detail-grid">
+          <div class="detail-panel">
+            <h2>設計ポイント</h2>
+            <ul>
+              <li>匿名IDをHttpOnly Cookieで保持し、DBにはHMACハッシュのみ保存</li>
+              <li>5分間の編集制限をクライアントではなくDB/RPC側で判定</li>
+              <li>Supabase Realtimeで閲覧中の画面へ即時反映</li>
+            </ul>
+          </div>
+          <div class="detail-panel">
+            <h2>技術スタック</h2>
+            <ul>
+              <li>Next.js / React / TypeScript</li>
+              <li>Supabase PostgreSQL</li>
+              <li>Supabase Realtime</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="project-footer shell">
+        <a href="/">yamanari.devへ戻る</a>
+      </footer>
+    </main>
+  </body>
+</html>
