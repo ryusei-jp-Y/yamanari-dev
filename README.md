@@ -21,7 +21,7 @@ This site uses the Sites vinext starter.
 ```bash
 pnpm install
 pnpm run dev
-pnpm run build
+pnpm run check
 ```
 
 The Cloudflare/Sites hosting declaration lives in `.openai/hosting.json`.
