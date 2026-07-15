@@ -1,0 +1,12 @@
+# Dependabot: ワークフローで使う GitHub Actions のバージョンを週次で更新する。
+# （静的サイトのため npm 等のパッケージ ecosystem は対象なし）
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "ci(deps)"
