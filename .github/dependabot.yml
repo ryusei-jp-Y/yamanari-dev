@@ -1,5 +1,8 @@
 # Dependabot: ワークフローで使う GitHub Actions のバージョンを週次で更新する。
 # （静的サイトのため npm 等のパッケージ ecosystem は対象なし）
+#
+# 方針: メジャー更新 (semver-major) は提案しない。patch/minor のみ自動化し、
+#       メジャーは必要時に手動で上げる。
 version: 2
 updates:
   - package-ecosystem: github-actions
@@ -8,5 +11,8 @@ updates:
       interval: weekly
       day: monday
     open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
     commit-message:
       prefix: "ci(deps)"
