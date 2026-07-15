@@ -1,0 +1,13 @@
+@use "variables" as *;
+
+:root {
+  --color-base-main: #{$color-base-main};
+  --color-base-surface: #{$color-base-surface};
+  --color-text-main: #{$color-text-main};
+  --color-text-sub: #{$color-text-sub};
+  --color-action-main: #{$color-action-main};
+  --color-action-soft: #{$color-action-soft};
+  --radius-normal: #{$radius-normal};
+  --radius-small: #{$radius-small};
+  --page-accent: #{$color-action-main};
+}

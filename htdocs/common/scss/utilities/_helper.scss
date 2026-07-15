@@ -1,0 +1,21 @@
+@use "../setting/mixin" as *;
+
+.u-mb-24 {
+  margin-bottom: 24px !important;
+}
+
+.u-for-sp {
+  display: none !important;
+
+  @include responsive("sp") {
+    display: block !important;
+  }
+}
+
+.u-for-pc {
+  display: block !important;
+
+  @include responsive("sp") {
+    display: none !important;
+  }
+}

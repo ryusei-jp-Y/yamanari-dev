@@ -1,51 +1,67 @@
 # yamanari.dev
 
-Static portfolio and service pages for projects under `yamanari.dev`.
+`yamanari.dev` 配下のポートフォリオと各サービス紹介ページです。Cloudflare Pagesで配信する静的HTMLを、共通デザインシステムとページ固有CSSの二層構成で管理します。
 
 ## Routes
 
-- `/` - portfolio top and project navigation
-- `/web-quality-crawler/` - Web Quality Crawler introduction LP
-- `/boarda/` - Boarda introduction LP
-- `/idle-clock/` - Idle Clock introduction LP
+- `/` - ポートフォリオトップ
+- `/web-quality-crawler/` - Web Quality Crawler紹介ページ
+- `/boarda/` - Boarda紹介ページ
+- `/idle-clock/` - Idle Clock紹介ページ
+- `/_components/` - UIコンポーネントの実装カタログ
 
-External app/demo hosts:
-
-- `web-quality-crawler.yamanari.dev` - Cloudflare Tunnel to the local Web Quality Crawler app when needed
-- `boarda.yamanari.dev` - Boarda app
-
-## Structure
+## Architecture
 
 ```text
-index.html
-web-quality-crawler/index.html
-boarda/index.html
-idle-clock/index.html
-assets/styles.css
+htdocs/
+├── _components/                  # 生きたスタイルガイド
+│   ├── index.html
+│   ├── scss/this.scss
+│   └── css/this.css
+├── common/
+│   ├── css/common.css         # 共通SCSSの生成物
+│   └── scss/
+│       ├── common.scss        # 共通CSSエントリーポイント
+│       ├── forward/           # ページへ公開する変数とmixin
+│       ├── setting/           # Primitive / Semantic token、reset、keyframes
+│       ├── layout/            # l-* ページ構造
+│       ├── components/           # c-* 再利用UI
+│       └── utilities/         # u-* 単一責務ヘルパー
+├── index.html
+├── scss/this.scss             # トップページ差分
+├── css/this.css
+└── {page}/
+    ├── index.html
+    ├── scss/this.scss         # ページ差分
+    └── css/this.css
 ```
 
-## Local preview
+依存方向は `setting → layout → components → utilities` とし、ページ側は `common/scss/forward` が公開する変数とmixinだけを参照します。HTMLは `main.l-page > section.l-section > div.l-inner` を基本骨格にし、`l-` はレイアウト、`c-` はUIコンポーネント、`is-` は状態、`p-` はページ固有スコープとして使います。
+
+このサイトはCloudflare Pagesで静的配信するため、PHP includeは採用していません。将来サーバーサイドの組み立てが必要になった場合も、現在のCSS階層とHTMLクラスの責務は維持します。
+
+## Development
 
 ```bash
-python3 -m http.server 3000
+pnpm install
+pnpm run build
+python3 -m http.server 3000 --directory htdocs
 ```
 
-Open `http://localhost:3000/`.
-
-## Cloudflare Pages
-
-Use Git integration with this repository.
-
-```text
-Build command: none
-Build output directory: /
-Root directory: /
-```
-
-Cloudflare Pages handles deployment on every push to `main`.
+SCSSエントリーポイントは `scripts/build-css.mjs` が自動検出し、各 `scss/` と同じ階層の `css/` へ出力します。パーシャルは `_` で始めてください。生成済みCSSはCloudflare Pagesがビルドなしで配信できるようコミット対象です。
 
 ## Check
 
 ```bash
-bash scripts/check-static-site.sh
+pnpm run check
+```
+
+## Cloudflare Pages
+
+Git連携では次の設定を使います。
+
+```text
+Build command: none
+Build output directory: /htdocs
+Root directory: /
 ```

@@ -1,0 +1,36 @@
+@use "../setting/mixin" as *;
+@use "../setting/variables" as *;
+
+.c-brandType01 {
+  color: $color-text-main;
+  font-weight: $font-weight-extra-bold;
+}
+
+.c-globalNavType01 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: $color-text-sub;
+  font-size: 0.9rem;
+  font-weight: $font-weight-bold;
+
+  &_link {
+    border-radius: 999px;
+    padding: 8px 11px;
+    transition: background-color $transition-normal, color $transition-normal;
+
+    @include hover {
+      background: $color-action-soft;
+      color: $color-text-highlight;
+      outline: none;
+    }
+  }
+
+  @include responsive("sp") {
+    gap: 4px;
+
+    &_link {
+      padding: 7px 9px;
+    }
+  }
+}

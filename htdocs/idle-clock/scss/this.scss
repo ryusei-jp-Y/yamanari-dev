@@ -1,0 +1,5 @@
+@use "../../common/scss/forward" as *;
+
+.p-idleClock {
+  --page-accent: #{$color-purple-400};
+}

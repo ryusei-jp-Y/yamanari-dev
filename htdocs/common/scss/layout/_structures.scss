@@ -1,0 +1,43 @@
+@use "../setting/mixin" as *;
+@use "../setting/variables" as *;
+
+.l-page {
+  position: relative;
+  z-index: 1;
+  overflow: clip;
+  width: 100%;
+}
+
+.l-section {
+  padding: 72px 0;
+  scroll-margin-top: 68px;
+
+  &.is-hero {
+    min-height: 64vh;
+    padding: 88px 0 64px;
+    border-bottom: 1px solid $color-divider-light;
+  }
+
+  &.is-muted {
+    border-top: 1px solid $color-divider-light;
+    border-bottom: 1px solid $color-divider-light;
+    background: rgba($color-white, 0.28);
+  }
+
+  @include responsive("sp") {
+    padding: 54px 0;
+
+    &.is-hero {
+      padding-top: 56px;
+    }
+  }
+}
+
+.l-inner {
+  width: min($width-contents, calc(100% - 40px));
+  margin: 0 auto;
+
+  @include responsive("sp") {
+    width: min(100% - 28px, 680px);
+  }
+}

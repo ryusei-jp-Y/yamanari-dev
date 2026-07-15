@@ -1,0 +1,5 @@
+@use "../../common/scss/forward" as *;
+
+.p-boarda {
+  --page-accent: #{$color-blue-600};
+}

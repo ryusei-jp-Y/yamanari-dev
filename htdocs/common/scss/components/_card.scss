@@ -1,0 +1,55 @@
+@use "../setting/mixin" as *;
+@use "../setting/variables" as *;
+
+.c-cardType01 {
+  @include glass;
+
+  display: flex;
+  min-height: 285px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  transition: transform $transition-normal, border-color $transition-normal, box-shadow $transition-normal, background-color $transition-normal;
+
+  &_label {
+    margin: 0 0 14px;
+    color: $color-text-sub;
+    font-size: 11px;
+    font-weight: $font-weight-bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &_title {
+    margin: 0 0 12px;
+    font-size: 1.35rem;
+    font-weight: $font-weight-bold;
+    line-height: 1.18;
+  }
+
+  &_text {
+    margin: 0;
+    color: $color-text-sub;
+    line-height: 1.75;
+  }
+
+  &_meta {
+    margin-top: 28px;
+    color: $color-text-highlight;
+    font-family: $font-family-mono;
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  @include hover {
+    border-color: $color-divider-strong;
+    background: rgba($color-white, 0.84);
+    box-shadow: $box-shadow-normal;
+    transform: translateY(-3px);
+    outline: none;
+  }
+
+  @include responsive("sp") {
+    min-height: 230px;
+  }
+}

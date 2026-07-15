@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UI Components | yamanari.dev</title>
+    <meta name="description" content="yamanari.devのUIコンポーネントとデザイントークンの実装カタログ。">
+    <link rel="stylesheet" href="/common/css/common.css">
+    <link rel="stylesheet" href="./css/this.css">
+  </head>
+  <body class="componentCatalog">
+    <header class="l-header">
+      <nav class="l-inner l-nav" aria-label="Component navigation">
+        <a class="c-brandType01" href="/">yamanari.dev / UI Components</a>
+        <a class="c-globalNavType01_link" href="/">サイトへ戻る</a>
+      </nav>
+    </header>
+
+    <main class="l-page">
+      <section class="l-section">
+        <div class="l-inner componentCatalog_intro">
+          <div class="c-headingType01">
+            <p class="c-headingType01_label">Living style guide</p>
+            <h1 class="c-headingType01_title">UI Components</h1>
+            <p class="c-headingType01_lead">実際のページで使うレイアウト、見出し、ボタン、カード、パネルの単一の実装見本です。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="l-section componentCatalog_section">
+        <div class="l-inner">
+          <div class="c-headingType02 u-mb-24">
+            <p class="c-headingType02_label">Tokens</p>
+            <h2 class="c-headingType02_title">◆使用箇所: サイト全体</h2>
+          </div>
+          <p class="componentCatalog_caption">Primitive → Semantic token</p>
+          <div class="componentCatalog_grid">
+            <div class="componentCatalog_swatch" style="--swatch: var(--color-base-main)">--color-base-main</div>
+            <div class="componentCatalog_swatch" style="--swatch: var(--color-base-surface)">--color-base-surface</div>
+            <div class="componentCatalog_swatch" style="--swatch: var(--color-action-soft)">--color-action-soft</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="l-section componentCatalog_section">
+        <div class="l-inner">
+          <div class="c-headingType02 u-mb-24">
+            <p class="c-headingType02_label">Heading</p>
+            <h2 class="c-headingType02_title">◆使用箇所: ヒーロー・セクション見出し</h2>
+          </div>
+          <p class="componentCatalog_caption">c-headingType01 / c-headingType02</p>
+          <div class="c-headingType01">
+            <p class="c-headingType01_label">Eyebrow label</p>
+            <h2 class="c-headingType01_title">ページの主題を伝える見出し</h2>
+            <p class="c-headingType01_lead">本文の導入に使うリードテキストです。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="l-section componentCatalog_section">
+        <div class="l-inner">
+          <div class="c-headingType02 u-mb-24">
+            <p class="c-headingType02_label">Button</p>
+            <h2 class="c-headingType02_title">◆使用箇所: 外部リンク・戻る導線</h2>
+          </div>
+          <p class="componentCatalog_caption">c-buttonType01 / c-buttonType02</p>
+          <div class="c-buttonGroup">
+            <a class="c-buttonType01" href="#buttons">Primary action</a>
+            <a class="c-buttonType02" href="#buttons">Secondary action</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="l-section componentCatalog_section">
+        <div class="l-inner">
+          <div class="c-headingType02 u-mb-24">
+            <p class="c-headingType02_label">Card</p>
+            <h2 class="c-headingType02_title">◆使用箇所: プロジェクト一覧</h2>
+          </div>
+          <p class="componentCatalog_caption">c-cardType01</p>
+          <div class="componentCatalog_grid">
+            <a class="c-cardType01" href="#cards">
+              <div>
+                <p class="c-cardType01_label">Category</p>
+                <h3 class="c-cardType01_title">Project title</h3>
+                <p class="c-cardType01_text">カード本文にはプロジェクトの要点を簡潔に記述します。</p>
+              </div>
+              <span class="c-cardType01_meta">Project metadata</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="l-section componentCatalog_section">
+        <div class="l-inner">
+          <div class="c-headingType02 u-mb-24">
+            <p class="c-headingType02_label">Panel</p>
+            <h2 class="c-headingType02_title">◆使用箇所: 技術情報・データ表示</h2>
+          </div>
+          <p class="componentCatalog_caption">c-panelType01 / c-panelType05</p>
+          <div class="l-gridType03">
+            <div class="c-panelType01">
+              <span class="c-panelType01_item">/page/</span>
+              <span class="c-panelType01_item">/page/css/this.css</span>
+            </div>
+            <div class="c-panelType05">
+              <h3 class="c-panelType05_title">Panel title</h3>
+              <ul class="c-panelType05_list">
+                <li class="c-panelType05_item">情報を短い単位で整理します</li>
+                <li class="c-panelType05_item">アクセント色はページトークンを参照します</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+@use "../setting/variables" as *;
+
+.c-textType01 {
+  margin: 0;
+  color: $color-text-sub;
+  font-size: 1.08rem;
+  line-height: 1.9;
+}

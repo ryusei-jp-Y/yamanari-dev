@@ -1,0 +1,41 @@
+@use "../setting/variables" as *;
+
+.c-headingType01 {
+  &_label {
+    margin: 0 0 14px;
+    color: $color-text-sub;
+    font-size: 11px;
+    font-weight: $font-weight-bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &_title {
+    max-width: 880px;
+    margin: 0;
+    font-size: clamp(2.8rem, 8vw, 5.9rem);
+    font-weight: $font-weight-bold;
+    line-height: 0.98;
+  }
+
+  &_lead {
+    max-width: 720px;
+    margin: 26px 0 0;
+    color: $color-text-sub;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: $line-height-copy;
+  }
+}
+
+.c-headingType02 {
+  &_label {
+    @extend .c-headingType01_label;
+  }
+
+  &_title {
+    margin: 0;
+    font-size: clamp(1.85rem, 4vw, 3.1rem);
+    font-weight: $font-weight-bold;
+    line-height: 1.08;
+  }
+}

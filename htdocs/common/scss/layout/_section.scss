@@ -1,0 +1,22 @@
+@use "../setting/mixin" as *;
+
+.l-gridType01,
+.l-gridType02,
+.l-gridType03 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 40px;
+  align-items: center;
+
+  @include responsive("sp") {
+    grid-template-columns: 1fr;
+  }
+}
+
+.l-gridType02 {
+  align-items: start;
+}
+
+.l-gridType03 {
+  align-items: stretch;
+}

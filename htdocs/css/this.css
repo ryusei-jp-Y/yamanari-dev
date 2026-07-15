@@ -1,0 +1,13 @@
+.p-home .l-section.is-hero {
+  min-height: 68vh;
+}
+.p-home_projectList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+@media (max-width: 860px) {
+  .p-home_projectList {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,17 @@
+@use "../common/scss/forward" as *;
+
+.p-home {
+  .l-section.is-hero {
+    min-height: 68vh;
+  }
+
+  &_projectList {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+
+    @include responsive("sp") {
+      grid-template-columns: 1fr;
+    }
+  }
+}

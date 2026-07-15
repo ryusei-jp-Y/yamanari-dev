@@ -1,0 +1,37 @@
+@use "../../common/scss/forward" as *;
+
+.componentCatalog {
+  &_intro {
+    max-width: 720px;
+  }
+
+  &_section {
+    border-top: 1px solid $color-divider-light;
+  }
+
+  &_caption {
+    margin: 0 0 24px;
+    color: $color-text-sub;
+    font-family: $font-family-mono;
+  }
+
+  &_grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+
+    @include responsive("sp") {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &_swatch {
+    min-height: 120px;
+    border: 1px solid $color-divider-base;
+    border-radius: $radius-small;
+    padding: 16px;
+    background: var(--swatch);
+    color: $color-text-main;
+    font-family: $font-family-mono;
+  }
+}

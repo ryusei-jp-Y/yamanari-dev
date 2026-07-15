@@ -1,0 +1,42 @@
+@use "../setting/mixin" as *;
+@use "../setting/variables" as *;
+
+.c-buttonType01,
+.c-buttonType02 {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $color-action-hover;
+  border-radius: $radius-small;
+  padding: 0 18px;
+  background: $color-action-main;
+  box-shadow: $box-shadow-small;
+  color: $color-base-surface-solid;
+  font-weight: $font-weight-bold;
+  transition: background-color $transition-normal, box-shadow $transition-normal, transform $transition-normal;
+
+  @include hover {
+    background: $color-action-hover;
+    box-shadow: $box-shadow-normal;
+    transform: translateY(-1px);
+    outline: none;
+  }
+}
+
+.c-buttonType02 {
+  border-color: $color-divider-strong;
+  background: $color-base-surface;
+  color: $color-text-highlight;
+
+  @include hover {
+    background: $color-action-soft;
+  }
+}
+
+.c-buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}

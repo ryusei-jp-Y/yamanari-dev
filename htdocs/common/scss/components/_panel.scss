@@ -1,0 +1,116 @@
+@use "../setting/mixin" as *;
+@use "../setting/variables" as *;
+
+.c-panelType01,
+.c-panelType02,
+.c-panelType03,
+.c-panelType04,
+.c-panelType05 {
+  @include glass;
+}
+
+.c-panelType01 {
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+  color: $color-text-sub;
+  font-family: $font-family-mono;
+  font-size: 0.88rem;
+  box-shadow: $box-shadow-normal;
+
+  &_item {
+    display: block;
+    border: 1px solid $color-divider-light;
+    border-radius: $radius-small;
+    padding: 10px 12px;
+    background: $color-action-soft-light;
+  }
+}
+
+.c-panelType02,
+.c-panelType03,
+.c-panelType04 {
+  display: grid;
+  min-height: 300px;
+  align-content: center;
+  gap: 14px;
+  padding: 28px;
+
+  @include responsive("sp") {
+    min-height: 240px;
+  }
+}
+
+.c-panelType02 {
+  &_score {
+    color: var(--page-accent);
+    font-size: 4rem;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  &_meta {
+    color: $color-text-sub;
+    font-family: $font-family-mono;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.c-panelType03 {
+  box-shadow: $box-shadow-normal;
+
+  &_label {
+    color: $color-text-sub;
+    font-family: $font-family-mono;
+  }
+
+  &_text {
+    margin: 0;
+    color: $color-text-main;
+    font-size: 1.65rem;
+    line-height: 1.45;
+  }
+}
+
+.c-panelType04 {
+  place-items: center;
+  background: radial-gradient(circle at 30% 25%, $color-action-soft, transparent 42%), $color-base-surface;
+
+  &_time {
+    color: $color-text-main;
+    font-family: $font-family-mono;
+    font-size: clamp(4rem, 12vw, 7rem);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  &_meta {
+    color: $color-text-sub;
+    font-family: $font-family-mono;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.c-panelType05 {
+  padding: 28px;
+
+  &_title {
+    margin: 0;
+    font-size: 1.45rem;
+  }
+
+  &_list {
+    display: grid;
+    gap: 14px;
+    margin: 22px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &_item {
+    border-left: 4px solid var(--page-accent);
+    padding-left: 18px;
+    color: $color-text-sub;
+    line-height: 1.65;
+  }
+}
