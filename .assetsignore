@@ -1,0 +1,7 @@
+# Workers 静的アセットとして配信しない（公開不要な）ファイル/ディレクトリ
+.github
+scripts
+README.md
+_headers
+wrangler.jsonc
+.assetsignore

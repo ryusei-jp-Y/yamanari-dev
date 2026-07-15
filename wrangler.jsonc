@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers 静的アセット配信の設定。
+  // Workers Builds (Git 連携) がこのファイルを読み、repo 直下の静的ファイルをデプロイする。
+  // name はダッシュボード上の Worker 名と一致させること。
+  "name": "yamanari-dev",
+  "compatibility_date": "2025-03-25",
+  "assets": {
+    "directory": "./"
+  }
+}
