@@ -1,0 +1,10 @@
+{
+  "name": "yamanari-dev",
+  "version": "0.0.0",
+  "private": true,
+  "description": "yamanari.dev ポートフォリオ (現状は静的サイト / Cloudflare Workers 静的アセット配信)",
+  "packageManager": "pnpm@11.12.0",
+  "scripts": {
+    "build": "echo \"static site: no build step (assets are served as-is via wrangler.jsonc)\""
+  }
+}
