@@ -10,9 +10,12 @@
   "scripts": {
     "build": "pnpm run build:css",
     "build:css": "node scripts/build-css.mjs",
-    "check": "pnpm run build:css && bash scripts/check-static-site.sh"
+    "check": "pnpm run build:css && bash scripts/check-static-site.sh && node --test worker/index.test.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
   },
   "devDependencies": {
-    "sass": "1.93.2"
+    "sass": "1.93.2",
+    "wrangler": "4.112.0"
   }
 }

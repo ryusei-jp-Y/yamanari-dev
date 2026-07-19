@@ -132,17 +132,16 @@ p {
 
 .l-nav {
   display: flex;
-  min-height: 68px;
+  min-height: 58px;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
 }
 @media (max-width: 860px) {
   .l-nav {
-    min-height: auto;
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 18px 0;
+    min-height: 58px;
+    gap: 16px;
+    padding: 10px 0;
   }
 }
 
@@ -228,39 +227,41 @@ p {
 .c-brandType01 {
   color: #1e293b;
   font-weight: 800;
+  font-size: 13px;
 }
 
 .c-globalNavType01 {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 24px;
   color: #64748b;
-  font-size: 0.9rem;
+  font-size: 12px;
   font-weight: 700;
 }
 .c-globalNavType01_link {
-  border-radius: 999px;
-  padding: 8px 11px;
-  transition: background-color 160ms ease, color 160ms ease;
+  border-bottom: 1px solid transparent;
+  padding: 4px 0;
+  transition: border-color 160ms ease, color 160ms ease;
 }
 @media (hover: hover) {
   .c-globalNavType01_link:hover {
-    background: rgba(59, 130, 246, 0.1);
+    border-color: currentcolor;
     color: #1d4ed8;
     outline: none;
   }
 }
 .c-globalNavType01_link:focus-visible {
-  background: rgba(59, 130, 246, 0.1);
+  border-color: currentcolor;
   color: #1d4ed8;
   outline: none;
 }
 @media (max-width: 860px) {
   .c-globalNavType01 {
-    gap: 4px;
+    gap: 12px;
+    font-size: 10px;
   }
   .c-globalNavType01_link {
-    padding: 7px 9px;
+    padding: 4px 0;
   }
 }
 
@@ -275,23 +276,38 @@ p {
 .c-headingType01_title {
   max-width: 880px;
   margin: 0;
-  font-size: clamp(2.8rem, 8vw, 5.9rem);
+  font-size: 64px;
   font-weight: 700;
-  line-height: 0.98;
+  line-height: 1.08;
+}
+@media (max-width: 860px) {
+  .c-headingType01_title {
+    font-size: 38px;
+  }
 }
 .c-headingType01_lead {
   max-width: 720px;
   margin: 26px 0 0;
   color: #64748b;
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-size: 18px;
   line-height: 1.85;
+}
+@media (max-width: 860px) {
+  .c-headingType01_lead {
+    font-size: 16px;
+  }
 }
 
 .c-headingType02_title {
   margin: 0;
-  font-size: clamp(1.85rem, 4vw, 3.1rem);
+  font-size: 38px;
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.18;
+}
+@media (max-width: 860px) {
+  .c-headingType02_title {
+    font-size: 28px;
+  }
 }
 
 .c-buttonType01,

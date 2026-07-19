@@ -22,6 +22,8 @@ grep -q '<link rel="stylesheet" href="/css/this.css">' htdocs/index.html
 grep -q 'href="/web-quality-crawler/"' htdocs/index.html
 grep -q 'href="/boarda/"' htdocs/index.html
 grep -q 'href="/idle-clock/"' htdocs/index.html
+grep -q 'src="/js/instagram-feed.js"' htdocs/index.html
+grep -q 'data-instagram-feed' htdocs/index.html
 
 for page in web-quality-crawler boarda idle-clock; do
   grep -q '<link rel="stylesheet" href="./css/this.css">' "htdocs/$page/index.html"
@@ -38,6 +40,11 @@ test -f htdocs/_components/index.html
 test -f htdocs/_components/scss/this.scss
 test -f htdocs/_components/css/this.css
 test -f htdocs/_headers
+test -f htdocs/js/instagram-feed.js
+test -f worker/index.mjs
+
+node --check htdocs/js/instagram-feed.js
+node --check worker/index.mjs
 
 grep -q '@forward "../setting/variables"' htdocs/common/scss/forward/_index.scss
 grep -q '@forward "../setting/mixin"' htdocs/common/scss/forward/_index.scss

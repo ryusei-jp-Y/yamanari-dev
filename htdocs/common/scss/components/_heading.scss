@@ -1,3 +1,4 @@
+@use "../setting/mixin" as *;
 @use "../setting/variables" as *;
 
 .c-headingType01 {
@@ -13,17 +14,25 @@
   &_title {
     max-width: 880px;
     margin: 0;
-    font-size: clamp(2.8rem, 8vw, 5.9rem);
+    font-size: 64px;
     font-weight: $font-weight-bold;
-    line-height: 0.98;
+    line-height: 1.08;
+
+    @include responsive("sp") {
+      font-size: 38px;
+    }
   }
 
   &_lead {
     max-width: 720px;
     margin: 26px 0 0;
     color: $color-text-sub;
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-size: 18px;
     line-height: $line-height-copy;
+
+    @include responsive("sp") {
+      font-size: 16px;
+    }
   }
 }
 
@@ -34,8 +43,12 @@
 
   &_title {
     margin: 0;
-    font-size: clamp(1.85rem, 4vw, 3.1rem);
+    font-size: 38px;
     font-weight: $font-weight-bold;
-    line-height: 1.08;
+    line-height: 1.18;
+
+    @include responsive("sp") {
+      font-size: 28px;
+    }
   }
 }

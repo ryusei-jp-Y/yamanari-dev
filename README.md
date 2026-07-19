@@ -1,6 +1,6 @@
 # yamanari.dev
 
-`yamanari.dev` 配下のポートフォリオと各サービス紹介ページです。Cloudflare Workers Static Assetsで配信する静的HTMLを、共通デザインシステムとページ固有CSSの二層構成で管理します。
+`yamanari.dev` 配下のポートフォリオと各サービス紹介ページです。Cloudflare Workers Static AssetsでHTML/CSS/画像を配信し、Worker APIでInstagramの最新投稿を取得します。
 
 ## Routes
 
@@ -28,27 +28,40 @@ htdocs/
 │       ├── components/           # c-* 再利用UI
 │       └── utilities/         # u-* 単一責務ヘルパー
 ├── index.html
+├── js/instagram-feed.js        # Instagram API結果で静的フォールバックを更新
 ├── scss/this.scss             # トップページ差分
 ├── css/this.css
 └── {page}/
     ├── index.html
     ├── scss/this.scss         # ページ差分
     └── css/this.css
+worker/
+├── index.mjs                   # Workerエントリーポイント / Instagram API
+└── index.test.mjs
 ```
 
-依存方向は `setting → layout → components → utilities` とし、ページ側は `common/scss/forward` が公開する変数とmixinだけを参照します。HTMLは `main.l-page > section.l-section > div.l-inner` を基本骨格にし、`l-` はレイアウト、`c-` はUIコンポーネント、`is-` は状態、`p-` はページ固有スコープとして使います。
+依存方向は `setting → layout → components → utilities` とし、ページ側は `common/scss/forward` が公開する変数とmixinだけを参照します。HTMLは `main.l-page > section.l-section > div.l-inner` を基本骨格にし、`l-` はレイアウト、`c-` はUIコンポーネント、`is-` は状態として使います。ページ固有のスタイルは各ページの `scss/this.scss` に記述します。
 
-このサイトはCloudflare Workers Static Assetsで静的配信するため、PHP includeは採用していません。将来サーバーサイドの組み立てが必要になった場合も、現在のCSS階層とHTMLクラスの責務は維持します。
+PHP includeは採用せず、Cloudflare Workerをサーバーサイド境界にします。Instagram APIが利用できない場合も、HTML内のローカル画像をフォールバックとして表示します。
 
 ## Development
 
 ```bash
 pnpm install
 pnpm run build
-python3 -m http.server 3000 --directory htdocs
+pnpm run dev
 ```
 
 SCSSエントリーポイントは `scripts/build-css.mjs` が自動検出し、各 `scss/` と同じ階層の `css/` へ出力します。パーシャルは `_` で始めてください。生成済みCSSもデプロイ内容を確認できるようコミット対象です。
+
+Instagram APIをローカルで確認する場合は、`.dev.vars.example`をもとに`.dev.vars`を作成し、次の値を設定します。
+
+```dotenv
+INSTAGRAM_USER_ID=...
+INSTAGRAM_ACCESS_TOKEN=...
+```
+
+未設定でもサイトは起動し、Instagram欄にはローカル画像が表示されます。
 
 ## Check
 
@@ -58,7 +71,7 @@ pnpm run check
 
 ## Cloudflare Workers Builds
 
-Git連携では次の設定を使います。Wranglerは `wrangler.jsonc` の `assets.directory` に従い、`htdocs/` 配下だけを静的アセットとしてデプロイします。
+Git連携では次の設定を使います。WranglerはWorker本体と`htdocs/`配下の静的アセットをまとめてデプロイします。
 
 ```text
 Build command: pnpm run build
@@ -66,3 +79,12 @@ Deploy command: npx wrangler deploy
 Version command: npx wrangler versions upload
 Root directory: /
 ```
+
+初回のみ、InstagramのユーザーIDとアクセストークンをWorker Secretへ登録します。
+
+```bash
+npx wrangler secret put INSTAGRAM_USER_ID
+npx wrangler secret put INSTAGRAM_ACCESS_TOKEN
+```
+
+トークンはソースコードや`wrangler.jsonc`へ直接記載しません。`/api/instagram`の正常レスポンスは15分間エッジキャッシュされ、API取得に失敗した場合はトップページの静的画像が維持されます。長期アクセストークンには有効期限があるため、期限前に更新して同じSecretへ再登録してください。

@@ -1,10 +1,11 @@
 {
-  // Cloudflare Workers 静的アセット配信の設定。
-  // Workers Builds (Git 連携) がこのファイルを読み、htdocs 配下をデプロイする。
-  // name はダッシュボード上の Worker 名と一致させること。
+  // Static AssetsとInstagram APIを同じWorkerから配信する。
   "name": "yamanari-dev",
-  "compatibility_date": "2025-03-25",
+  "main": "./worker/index.mjs",
+  "compatibility_date": "2026-07-18",
   "assets": {
-    "directory": "./htdocs"
+    "directory": "./htdocs",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
   }
 }

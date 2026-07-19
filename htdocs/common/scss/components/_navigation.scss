@@ -4,33 +4,35 @@
 .c-brandType01 {
   color: $color-text-main;
   font-weight: $font-weight-extra-bold;
+  font-size: 13px;
 }
 
 .c-globalNavType01 {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 24px;
   color: $color-text-sub;
-  font-size: 0.9rem;
+  font-size: 12px;
   font-weight: $font-weight-bold;
 
   &_link {
-    border-radius: 999px;
-    padding: 8px 11px;
-    transition: background-color $transition-normal, color $transition-normal;
+    border-bottom: 1px solid transparent;
+    padding: 4px 0;
+    transition: border-color $transition-normal, color $transition-normal;
 
     @include hover {
-      background: $color-action-soft;
+      border-color: currentcolor;
       color: $color-text-highlight;
       outline: none;
     }
   }
 
   @include responsive("sp") {
-    gap: 4px;
+    gap: 12px;
+    font-size: 10px;
 
     &_link {
-      padding: 7px 9px;
+      padding: 4px 0;
     }
   }
 }

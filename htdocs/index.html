@@ -4,89 +4,205 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>yamanari.dev</title>
-    <meta name="description" content="Portfolio and service pages for Web Quality Crawler, Boarda, and Idle Clock.">
+    <meta name="description" content="Web Quality Crawler、Boarda、Idle Clockの開発と、honzitu no kaoのイラストをまとめたyamanari.devの活動索引。">
     <link rel="stylesheet" href="/common/css/common.css">
     <link rel="stylesheet" href="/css/this.css">
+    <script src="/js/instagram-feed.js" defer></script>
   </head>
-  <body class="p-home">
-    <div class="c-ambientType01" aria-hidden="true">
-      <span class="c-ambientType01_blob is-blue"></span>
-      <span class="c-ambientType01_blob is-purple"></span>
-      <span class="c-ambientType01_blob is-red"></span>
+  <body>
+    <div class="homeAurora" aria-hidden="true">
+      <span class="homeAurora_light is-blue"></span>
+      <span class="homeAurora_light is-purple"></span>
+      <span class="homeAurora_light is-red"></span>
     </div>
 
-    <header class="l-header">
-      <nav class="l-inner l-nav" aria-label="Primary navigation">
-        <a class="c-brandType01" href="/">yamanari.dev</a>
-        <div class="c-globalNavType01">
-          <a class="c-globalNavType01_link" href="/web-quality-crawler/">Web Quality Crawler</a>
-          <a class="c-globalNavType01_link" href="/boarda/">Boarda</a>
-          <a class="c-globalNavType01_link" href="/idle-clock/">Idle Clock</a>
-        </div>
-      </nav>
-    </header>
-
     <main class="l-page">
-      <section class="l-section is-hero">
-        <div class="l-inner l-gridType01">
-          <div class="c-headingType01">
-            <p class="c-headingType01_label">yamanari.dev</p>
-            <h1 class="c-headingType01_title">個人開発のプロダクトと技術判断をまとめる場所。</h1>
-            <p class="c-headingType01_lead">
-              Web品質評価、リアルタイム掲示板、iOS時計アプリ。作ったものを見せるだけでなく、
-              何を削り、何を残し、どう運用するかまで整理して公開します。
+      <section class="l-section homeIntro">
+        <div class="l-inner">
+          <div class="homeIntro_header">
+            <p class="homeIntro_kicker">
+              <span>Independent work</span>
+              <span>Tokyo / 2026</span>
             </p>
+            <h1 class="homeIntro_title">yamanari.dev</h1>
           </div>
-          <div class="c-panelType01" aria-label="公開予定のURL構成">
-            <span class="c-panelType01_item">yamanari.dev</span>
-            <span class="c-panelType01_item">/web-quality-crawler</span>
-            <span class="c-panelType01_item">web-quality-crawler.yamanari.dev</span>
-            <span class="c-panelType01_item">/boarda</span>
-            <span class="c-panelType01_item">boarda.yamanari.dev</span>
-            <span class="c-panelType01_item">/idle-clock</span>
+
+          <div class="signalField" aria-hidden="true">
+            <div class="signalField_grid">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <span class="signalField_scan"></span>
+            <div class="signalField_labels">
+              <span>quality</span>
+              <span>realtime</span>
+              <span>visual</span>
+            </div>
+          </div>
+
+          <dl class="homeFacts">
+            <div>
+              <dt>Projects</dt>
+              <dd>03 active</dd>
+            </div>
+            <div>
+              <dt>Approach</dt>
+              <dd>Local first</dd>
+            </div>
+            <div>
+              <dt>Focus</dt>
+              <dd>Build / draw / operate</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="l-section projectSection" id="projects">
+        <div class="l-inner">
+          <header class="projectSection_header">
+            <div>
+              <p class="projectSection_label">Selected work</p>
+              <h2 class="projectSection_title">Projects</h2>
+            </div>
+          </header>
+
+          <div class="projectIndex">
+            <a class="projectRow" href="/web-quality-crawler/">
+              <span class="projectRow_number">01</span>
+              <div class="projectRow_copy">
+                <p class="projectRow_category">Quality automation</p>
+                <h3 class="projectRow_title">Web Quality Crawler</h3>
+              </div>
+              <div class="projectVisual is-crawler" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+                <i></i>
+              </div>
+              <dl class="projectRow_meta">
+                <div><dt>Status</dt><dd>Local production</dd></div>
+                <div><dt>Stack</dt><dd>Node / SQLite</dd></div>
+              </dl>
+              <span class="projectRow_arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="projectRow" href="/boarda/">
+              <span class="projectRow_number">02</span>
+              <div class="projectRow_copy">
+                <p class="projectRow_category">Realtime board</p>
+                <h3 class="projectRow_title">Boarda</h3>
+              </div>
+              <div class="projectVisual is-boarda" aria-hidden="true">
+                <span class="projectVisual_note">いまの一枚</span>
+                <span class="projectVisual_line"></span>
+              </div>
+              <dl class="projectRow_meta">
+                <div><dt>Status</dt><dd>Live</dd></div>
+                <div><dt>Stack</dt><dd>Next / Supabase</dd></div>
+              </dl>
+              <span class="projectRow_arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="projectRow" href="/idle-clock/">
+              <span class="projectRow_number">03</span>
+              <div class="projectRow_copy">
+                <p class="projectRow_category">iOS visual clock</p>
+                <h3 class="projectRow_title">Idle Clock</h3>
+              </div>
+              <div class="projectVisual is-clock" aria-hidden="true">
+                <span class="projectVisual_time">10:24</span>
+                <span class="projectVisual_object"></span>
+              </div>
+              <dl class="projectRow_meta">
+                <div><dt>Status</dt><dd>Prototype</dd></div>
+                <div><dt>Stack</dt><dd>Flutter / iOS</dd></div>
+              </dl>
+              <span class="projectRow_arrow" aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
       </section>
 
-      <section class="l-section">
+      <section class="l-section illustrationSection" id="illustrations">
         <div class="l-inner">
-          <div class="c-headingType02 u-mb-24">
-            <p class="c-headingType02_label">Projects</p>
-            <h2 class="c-headingType02_title">サービスページ</h2>
-          </div>
-          <div class="p-home_projectList">
-            <a class="c-cardType01" href="/web-quality-crawler/">
-              <div>
-                <p class="c-cardType01_label">Quality automation</p>
-                <h3 class="c-cardType01_title">Web Quality Crawler</h3>
-                <p class="c-cardType01_text">
-                  Webサイト品質をコード、情報設計、文章、ビジュアル、操作性、
-                  Lighthouseの観点で自動評価するクローラーとダッシュボード。
-                </p>
-              </div>
-              <span class="c-cardType01_meta">Local-first demo / Tunnel on demand</span>
+          <header class="illustrationSection_header">
+            <div>
+              <p class="illustrationSection_label">Illustrations / Instagram</p>
+              <h2 class="illustrationSection_title">honzitu no kao</h2>
+            </div>
+            <a
+              class="illustrationSection_account"
+              href="https://www.instagram.com/honzitu_no_kao/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>@honzitu_no_kao</span>
+              <span aria-hidden="true">↗</span>
             </a>
-            <a class="c-cardType01" href="/boarda/">
-              <div>
-                <p class="c-cardType01_label">Realtime board</p>
-                <h3 class="c-cardType01_title">Boarda</h3>
-                <p class="c-cardType01_text">
-                  ひとつだけの共有掲示板を、匿名ユーザーが上書きしていく
-                  リアルタイムWebサービス。
-                </p>
-              </div>
-              <span class="c-cardType01_meta">Product prototype</span>
+          </header>
+
+          <div class="illustrationFeed" aria-label="honzitu no kaoのイラスト投稿" data-instagram-feed>
+            <a
+              class="illustrationFeed_item"
+              href="https://www.instagram.com/p/DavIZfLhNCA/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="オレンジ色の顔のイラスト投稿をInstagramで見る"
+              data-instagram-item
+            >
+              <img
+                src="/images/honzitu-no-kao/DavIZfLhNCA.jpg"
+                alt="オレンジ色の線で描かれた目を閉じた顔"
+                width="640"
+                height="640"
+                loading="lazy"
+              >
             </a>
-            <a class="c-cardType01" href="/idle-clock/">
-              <div>
-                <p class="c-cardType01_label">iOS visual clock</p>
-                <h3 class="c-cardType01_title">Idle Clock</h3>
-                <p class="c-cardType01_text">
-                  動き続けるビジュアルを眺めながら時間を確認できる、
-                  ローカルファーストな時計アプリ。
-                </p>
-              </div>
-              <span class="c-cardType01_meta">iOS prototype</span>
+            <a
+              class="illustrationFeed_item"
+              href="https://www.instagram.com/p/DasSbtFBmVZ/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="ピンク色の顔のイラスト投稿をInstagramで見る"
+              data-instagram-item
+            >
+              <img
+                src="/images/honzitu-no-kao/DasSbtFBmVZ.jpg"
+                alt="ピンク色の線で描かれた長い前髪と小さな口の顔"
+                width="640"
+                height="640"
+                loading="lazy"
+              >
+            </a>
+            <a
+              class="illustrationFeed_item"
+              href="https://www.instagram.com/p/DanJvi8B6YX/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="黒い線の顔のイラスト投稿をInstagramで見る"
+              data-instagram-item
+            >
+              <img
+                src="/images/honzitu-no-kao/DanJvi8B6YX.jpg"
+                alt="黒い線で描かれた渦巻きの目と大きな口の顔"
+                width="640"
+                height="640"
+                loading="lazy"
+              >
+            </a>
+            <a
+              class="illustrationFeed_item"
+              href="https://www.instagram.com/p/DakntjUhiD5/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="オレンジ色の顔のイラスト投稿をInstagramで見る"
+              data-instagram-item
+            >
+              <img
+                src="/images/honzitu-no-kao/DakntjUhiD5.jpg"
+                alt="オレンジ色の線で描かれた鋭い目と歯を見せる顔"
+                width="640"
+                height="640"
+                loading="lazy"
+              >
             </a>
           </div>
         </div>
@@ -94,7 +210,7 @@
     </main>
 
     <footer class="l-footer">
-      <div class="l-inner">yamanari.dev</div>
+      <div class="l-inner">yamanari.dev / independent work index</div>
     </footer>
   </body>
 </html>

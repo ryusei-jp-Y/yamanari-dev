@@ -13,15 +13,14 @@
 
 .l-nav {
   display: flex;
-  min-height: 68px;
+  min-height: 58px;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
 
   @include responsive("sp") {
-    min-height: auto;
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 18px 0;
+    min-height: 58px;
+    gap: 16px;
+    padding: 10px 0;
   }
 }
