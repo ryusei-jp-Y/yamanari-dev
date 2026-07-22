@@ -246,6 +246,10 @@ $color-idle-object-warm: #ff9ca8;
     --project-color: #{$color-purple-400};
   }
 
+  &:nth-child(4) {
+    --project-color: #{$color-red-500};
+  }
+
   @include hover {
     background: rgba($color-white, 0.48);
     outline: none;
@@ -439,6 +443,74 @@ $color-idle-object-warm: #ff9ca8;
     }
   }
 
+  &.is-kaosan {
+    display: grid;
+    place-items: center;
+    background:
+      linear-gradient(90deg, rgba($color-red-300, 0.14), rgba($color-white, 0.18)),
+      $color-base-surface;
+
+    &::before {
+      position: absolute;
+      inset: 18px 14px;
+      border: 1px solid rgba($color-red-500, 0.24);
+      content: "";
+    }
+  }
+
+  &_face {
+    position: relative;
+    z-index: 2;
+    width: 36px;
+    height: 44px;
+    border: 2px solid $color-red-500;
+    border-radius: 46% 54% 52% 48%;
+    animation: kaosan-face 4.8s ease-in-out infinite;
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 16px;
+      width: 6px;
+      height: 1px;
+      background: $color-red-500;
+      content: "";
+    }
+
+    &::before {
+      left: 8px;
+    }
+
+    &::after {
+      right: 8px;
+    }
+  }
+
+  &_wave {
+    position: absolute;
+    z-index: 1;
+    left: 18px;
+    width: 28px;
+    height: 1px;
+    background: $color-red-500;
+    opacity: 0.48;
+    animation: kaosan-wave 2.8s ease-in-out infinite;
+
+    &:nth-of-type(2) {
+      top: 31px;
+    }
+
+    &:nth-of-type(3) {
+      top: 44px;
+      animation-delay: -0.7s;
+    }
+
+    &:nth-of-type(4) {
+      top: 57px;
+      animation-delay: -1.4s;
+    }
+  }
+
   &_time {
     position: relative;
     z-index: 2;
@@ -619,6 +691,16 @@ $color-idle-object-warm: #ff9ca8;
 @keyframes boarda-note {
   0%, 100% { transform: translateY(-4px); }
   50% { transform: translateY(4px); }
+}
+
+@keyframes kaosan-face {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-4px) rotate(2deg); }
+}
+
+@keyframes kaosan-wave {
+  0%, 100% { transform: scaleX(0.6); opacity: 0.24; }
+  50% { transform: scaleX(1.15); opacity: 0.7; }
 }
 
 @keyframes clock-object-bounce {

@@ -7,14 +7,24 @@
     <meta name="description" content="yamanari.devのUIコンポーネントとデザイントークンの実装カタログ。">
     <link rel="stylesheet" href="/common/css/common.css">
     <link rel="stylesheet" href="./css/this.css">
+    <script src="/js/orbit-nav.js" defer></script>
   </head>
   <body class="componentCatalog">
-    <header class="l-header">
-      <nav class="l-inner l-nav" aria-label="Component navigation">
-        <a class="c-brandType01" href="/">yamanari.dev / UI Components</a>
-        <a class="c-globalNavType01_link" href="/">サイトへ戻る</a>
-      </nav>
-    </header>
+    <nav class="c-orbitNav" aria-label="Site navigation" data-orbit-nav>
+      <div class="c-orbitNav_inner">
+        <input class="c-orbitNav_state" type="checkbox" id="orbit-nav-toggle" aria-label="メニューを開閉する">
+        <label class="c-orbitNav_toggle" for="orbit-nav-toggle">
+          <span class="c-orbitNav_label">menu</span>
+        </label>
+        <div class="c-orbitNav_menu">
+          <a class="c-orbitNav_link" href="/">Top</a>
+          <a class="c-orbitNav_link" href="/web-quality-crawler/">Crawler</a>
+          <a class="c-orbitNav_link" href="/boarda/">Boarda</a>
+          <a class="c-orbitNav_link" href="/idle-clock/">Clock</a>
+          <a class="c-orbitNav_link" href="/kaosan-live/">Kaosan</a>
+        </div>
+      </div>
+    </nav>
 
     <main class="l-page">
       <section class="l-section">

@@ -2,4 +2,5 @@
 
 :root {
   --page-accent: #{$color-purple-400};
+  --page-accent-soft: #{rgba($color-purple-400, 0.16)};
 }

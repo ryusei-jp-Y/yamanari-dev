@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>yamanari.dev</title>
-    <meta name="description" content="Web Quality Crawler、Boarda、Idle Clockの開発と、honzitu no kaoのイラストをまとめたyamanari.devの活動索引。">
+    <meta name="description" content="Web Quality Crawler、Boarda、Idle Clock、Kaosan Liveの開発と、honzitu no kaoのイラストをまとめたyamanari.devの活動索引。">
     <link rel="stylesheet" href="/common/css/common.css">
     <link rel="stylesheet" href="/css/this.css">
+    <script src="/js/orbit-nav.js" defer></script>
     <script src="/js/instagram-feed.js" defer></script>
   </head>
   <body>
@@ -15,6 +16,22 @@
       <span class="homeAurora_light is-purple"></span>
       <span class="homeAurora_light is-red"></span>
     </div>
+
+    <nav class="c-orbitNav" aria-label="Site navigation" data-orbit-nav>
+      <div class="c-orbitNav_inner">
+        <input class="c-orbitNav_state" type="checkbox" id="orbit-nav-toggle" aria-label="メニューを開閉する">
+        <label class="c-orbitNav_toggle" for="orbit-nav-toggle">
+          <span class="c-orbitNav_label">menu</span>
+        </label>
+        <div class="c-orbitNav_menu">
+          <a class="c-orbitNav_link" href="/">Top</a>
+          <a class="c-orbitNav_link" href="/web-quality-crawler/">Crawler</a>
+          <a class="c-orbitNav_link" href="/boarda/">Boarda</a>
+          <a class="c-orbitNav_link" href="/idle-clock/">Clock</a>
+          <a class="c-orbitNav_link" href="/kaosan-live/">Kaosan</a>
+        </div>
+      </div>
+    </nav>
 
     <main class="l-page">
       <section class="l-section homeIntro">
@@ -43,7 +60,7 @@
           <dl class="homeFacts">
             <div>
               <dt>Projects</dt>
-              <dd>03 active</dd>
+              <dd>04 active</dd>
             </div>
             <div>
               <dt>Approach</dt>
@@ -91,12 +108,12 @@
                 <h3 class="projectRow_title">Boarda</h3>
               </div>
               <div class="projectVisual is-boarda" aria-hidden="true">
-                <span class="projectVisual_note">いまの一枚</span>
+                <span class="projectVisual_note">4000 x 3000</span>
                 <span class="projectVisual_line"></span>
               </div>
               <dl class="projectRow_meta">
-                <div><dt>Status</dt><dd>Live</dd></div>
-                <div><dt>Stack</dt><dd>Next / Supabase</dd></div>
+                <div><dt>Status</dt><dd>Cloudflare v1</dd></div>
+                <div><dt>Stack</dt><dd>Next / D1</dd></div>
               </dl>
               <span class="projectRow_arrow" aria-hidden="true">→</span>
             </a>
@@ -114,6 +131,25 @@
               <dl class="projectRow_meta">
                 <div><dt>Status</dt><dd>Prototype</dd></div>
                 <div><dt>Stack</dt><dd>Flutter / iOS</dd></div>
+              </dl>
+              <span class="projectRow_arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="projectRow" href="/kaosan-live/">
+              <span class="projectRow_number">04</span>
+              <div class="projectRow_copy">
+                <p class="projectRow_category">Desktop avatar</p>
+                <h3 class="projectRow_title">Kaosan Live</h3>
+              </div>
+              <div class="projectVisual is-kaosan" aria-hidden="true">
+                <span class="projectVisual_face"></span>
+                <span class="projectVisual_wave"></span>
+                <span class="projectVisual_wave"></span>
+                <span class="projectVisual_wave"></span>
+              </div>
+              <dl class="projectRow_meta">
+                <div><dt>Status</dt><dd>Local prototype</dd></div>
+                <div><dt>Stack</dt><dd>Electron / Canvas</dd></div>
               </dl>
               <span class="projectRow_arrow" aria-hidden="true">→</span>
             </a>

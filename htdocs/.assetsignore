@@ -1,0 +1,3 @@
+# Repository-only sources. Wrangler reads this file from the assets directory.
+**/scss/
+*.map

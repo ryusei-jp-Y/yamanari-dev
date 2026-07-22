@@ -1,0 +1,359 @@
+@use "../setting/mixin" as *;
+@use "../setting/variables" as *;
+
+.projectPage {
+  position: relative;
+  z-index: 1;
+}
+
+.projectHero {
+  padding: 58px 0 52px;
+  border-bottom: 1px solid $color-divider-strong;
+
+  &_layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+    gap: 54px;
+    align-items: stretch;
+  }
+
+  &_meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    margin-bottom: 34px;
+    color: $color-text-sub;
+    font-family: $font-family-mono;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  &_number {
+    color: var(--page-accent);
+    font-weight: $font-weight-bold;
+  }
+
+  &_title {
+    max-width: 760px;
+    margin: 0;
+    font-size: 56px;
+    font-weight: $font-weight-bold;
+    line-height: 1.08;
+  }
+
+  &_lead {
+    max-width: 720px;
+    margin: 24px 0 0;
+    color: $color-text-sub;
+    font-size: 18px;
+    line-height: $line-height-copy;
+  }
+
+  @include responsive("sp") {
+    padding: 40px 0 36px;
+
+    &_layout {
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+
+    &_meta {
+      margin-bottom: 24px;
+      font-size: 10px;
+    }
+
+    &_title {
+      font-size: 36px;
+    }
+
+    &_lead {
+      font-size: 16px;
+    }
+  }
+}
+
+.projectSignal {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  border: 1px solid $color-divider-strong;
+  border-radius: $radius-small;
+  background:
+    linear-gradient(135deg, rgba($color-white, 0.78), rgba($color-white, 0.36)),
+    radial-gradient(circle at 22% 18%, var(--page-accent-soft), transparent 38%),
+    $color-base-surface;
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient($color-divider-base 1px, transparent 1px),
+      linear-gradient(90deg, $color-divider-base 1px, transparent 1px);
+    background-size: 42px 42px;
+    content: "";
+  }
+
+  &_label,
+  &_status {
+    position: absolute;
+    z-index: 1;
+    color: $color-text-sub;
+    font-family: $font-family-mono;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+
+  &_label {
+    top: 22px;
+    left: 22px;
+  }
+
+  &_status {
+    right: 22px;
+    bottom: 22px;
+  }
+
+  &_figure {
+    position: absolute;
+    z-index: 1;
+    inset: 88px 38px 74px;
+  }
+
+  &.is-crawler {
+    .projectSignal_figure {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      align-content: center;
+
+      span {
+        min-height: 54px;
+        border: 1px solid rgba($color-red-500, 0.36);
+        border-radius: $radius-small;
+        background: rgba($color-white, 0.62);
+
+        &:nth-child(2),
+        &:nth-child(5) {
+          background: rgba($color-red-500, 0.12);
+        }
+      }
+    }
+  }
+
+  &.is-boarda {
+    .projectSignal_figure {
+      display: grid;
+      place-items: center;
+    }
+
+    .projectSignal_note {
+      width: min(220px, 72%);
+      min-height: 168px;
+      border: 1px solid rgba($color-blue-600, 0.28);
+      border-radius: $radius-small;
+      padding: 22px;
+      background: rgba($color-white, 0.76);
+      box-shadow: $box-shadow-normal;
+      color: $color-text-main;
+      font-weight: $font-weight-bold;
+      line-height: 1.7;
+      transform: rotate(-2deg);
+    }
+  }
+
+  &.is-clock {
+    display: grid;
+    place-items: center;
+
+    .projectSignal_time {
+      z-index: 1;
+      color: $color-text-main;
+      font-family: $font-family-mono;
+      font-size: 72px;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .projectSignal_orbit {
+      position: absolute;
+      z-index: 1;
+      width: 190px;
+      height: 190px;
+      border: 1px solid rgba($color-purple-400, 0.48);
+      border-radius: 50%;
+    }
+  }
+
+  &.is-kaosan {
+    display: grid;
+    place-items: center;
+
+    .projectSignal_avatar {
+      z-index: 1;
+      width: 118px;
+      height: 142px;
+      border: 2px solid $color-red-500;
+      border-radius: 46% 54% 52% 48%;
+      background: rgba($color-white, 0.54);
+      transform: rotate(-2deg);
+    }
+
+    .projectSignal_mouth {
+      position: absolute;
+      z-index: 2;
+      width: 34px;
+      height: 12px;
+      border-bottom: 2px solid $color-red-500;
+      border-radius: 50%;
+      transform: translateY(34px);
+    }
+
+    .projectSignal_audio {
+      position: absolute;
+      z-index: 1;
+      left: 42px;
+      width: 58px;
+      height: 1px;
+      background: $color-red-500;
+      opacity: 0.48;
+
+      &.is-short {
+        top: 134px;
+      }
+
+      &.is-long {
+        top: 162px;
+        width: 78px;
+      }
+
+      &.is-mid {
+        top: 190px;
+        width: 46px;
+      }
+    }
+  }
+
+  @include responsive("sp") {
+    min-height: 270px;
+
+    &_figure {
+      inset: 72px 24px 62px;
+    }
+
+    &.is-clock .projectSignal_time {
+      font-size: 52px;
+    }
+  }
+}
+
+.projectFacts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 34px 0 0;
+  border-top: 1px solid $color-divider-strong;
+  border-bottom: 1px solid $color-divider-strong;
+
+  div {
+    padding: 17px 18px;
+    border-left: 1px solid $color-divider-base;
+
+    &:last-child {
+      border-right: 1px solid $color-divider-base;
+    }
+  }
+
+  dt {
+    color: $color-text-muted;
+    font-family: $font-family-mono;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+
+  dd {
+    margin: 6px 0 0;
+    font-size: 13px;
+    font-weight: $font-weight-bold;
+  }
+
+  @include responsive("sp") {
+    grid-template-columns: 1fr;
+
+    div,
+    div:last-child {
+      border-right: 1px solid $color-divider-base;
+      border-bottom: 1px solid $color-divider-base;
+    }
+  }
+}
+
+.projectStory {
+  &_label {
+    margin: 0 0 8px;
+    color: $color-text-sub;
+    font-family: $font-family-mono;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  &_title {
+    margin: 0;
+    font-size: 34px;
+    line-height: 1.24;
+  }
+
+  @include responsive("sp") {
+    &_title {
+      font-size: 27px;
+    }
+  }
+}
+
+.projectMetrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid $color-divider-strong;
+
+  &_item {
+    min-height: 126px;
+    padding: 20px;
+    border-right: 1px solid $color-divider-base;
+    border-bottom: 1px solid $color-divider-strong;
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+
+  &_value {
+    display: block;
+    color: var(--page-accent);
+    font-family: $font-family-mono;
+    font-size: 22px;
+    font-weight: $font-weight-bold;
+  }
+
+  &_label {
+    display: block;
+    margin-top: 12px;
+    color: $color-text-sub;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  @include responsive("sp") {
+    grid-template-columns: 1fr;
+
+    &_item {
+      min-height: auto;
+      border-right: 0;
+    }
+  }
+}
+
+.projectDetail {
+  border-top: 1px solid $color-divider-base;
+
+  .projectMetrics {
+    margin-top: 34px;
+  }
+}

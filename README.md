@@ -1,6 +1,6 @@
 # yamanari.dev
 
-`yamanari.dev` 配下のポートフォリオと各サービス紹介ページです。Cloudflare Workers Static AssetsでHTML/CSS/画像を配信し、Worker APIでInstagramの最新投稿を取得します。
+`yamanari.dev` 配下のポートフォリオと各プロジェクト紹介ページです。Cloudflare Workers Static AssetsでHTML/CSS/画像を配信し、Worker APIでInstagramの最新投稿を取得します。
 
 ## Routes
 
@@ -8,12 +8,14 @@
 - `/web-quality-crawler/` - Web Quality Crawler紹介ページ
 - `/boarda/` - Boarda紹介ページ
 - `/idle-clock/` - Idle Clock紹介ページ
+- `/kaosan-live/` - Kaosan Live紹介ページ
 - `/_components/` - UIコンポーネントの実装カタログ
 
 ## Architecture
 
 ```text
 htdocs/
+├── .assetsignore                 # Workerの配信対象外ルール
 ├── _components/                  # 生きたスタイルガイド
 │   ├── index.html
 │   ├── scss/this.scss
@@ -52,7 +54,7 @@ pnpm run build
 pnpm run dev
 ```
 
-SCSSエントリーポイントは `scripts/build-css.mjs` が自動検出し、各 `scss/` と同じ階層の `css/` へ出力します。パーシャルは `_` で始めてください。生成済みCSSもデプロイ内容を確認できるようコミット対象です。
+SCSSエントリーポイントは `scripts/build-css.mjs` が自動検出し、各 `scss/` と同じ階層の `css/` へ出力します。パーシャルは `_` で始めてください。生成済みCSSもデプロイ内容を確認できるようコミット対象です。SCSSソースとソースマップはリポジトリには保持しますが、`htdocs/.assetsignore` によりWorkerからは配信しません。
 
 Instagram APIをローカルで確認する場合は、`.dev.vars.example`をもとに`.dev.vars`を作成し、次の値を設定します。
 

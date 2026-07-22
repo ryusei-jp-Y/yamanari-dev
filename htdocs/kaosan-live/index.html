@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kaosan Live | yamanari.dev</title>
+    <meta name="description" content="Kaosan Live introduction page: an Electron desktop app that turns one line-art image into a talking avatar for meetings.">
+    <link rel="stylesheet" href="/common/css/common.css">
+    <link rel="stylesheet" href="./css/this.css">
+    <script src="/js/orbit-nav.js" defer></script>
+  </head>
+  <body>
+    <div class="c-ambientType01" aria-hidden="true">
+      <span class="c-ambientType01_blob is-blue"></span>
+      <span class="c-ambientType01_blob is-purple"></span>
+      <span class="c-ambientType01_blob is-red"></span>
+    </div>
+
+    <nav class="c-orbitNav" aria-label="Site navigation" data-orbit-nav>
+      <div class="c-orbitNav_inner">
+        <input class="c-orbitNav_state" type="checkbox" id="orbit-nav-toggle" aria-label="メニューを開閉する">
+        <label class="c-orbitNav_toggle" for="orbit-nav-toggle">
+          <span class="c-orbitNav_label">menu</span>
+        </label>
+        <div class="c-orbitNav_menu">
+          <a class="c-orbitNav_link" href="/">Top</a>
+          <a class="c-orbitNav_link" href="/web-quality-crawler/">Crawler</a>
+          <a class="c-orbitNav_link" href="/boarda/">Boarda</a>
+          <a class="c-orbitNav_link" href="/idle-clock/">Clock</a>
+          <a class="c-orbitNav_link" href="/kaosan-live/">Kaosan</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="l-page projectPage">
+      <section class="l-section projectHero">
+        <div class="l-inner projectHero_layout">
+          <div>
+            <p class="projectHero_meta">
+              <span class="projectHero_number">04</span>
+              <span>Desktop avatar</span>
+              <span>Local prototype</span>
+            </p>
+            <h1 class="projectHero_title">Kaosan Live</h1>
+            <p class="projectHero_lead">
+              線画イラスト1枚を、マイク音声に合わせて口が動き、瞬きし、少しだけ揺れる会議用アバターにするElectronアプリです。
+              OBS StudioのWindow CaptureとVirtual Camera経由でZoomへ渡します。
+            </p>
+            <dl class="projectFacts">
+              <div><dt>Status</dt><dd>Local prototype</dd></div>
+              <div><dt>Stack</dt><dd>Electron / Canvas</dd></div>
+              <div><dt>Output</dt><dd>OBS / Zoom</dd></div>
+            </dl>
+          </div>
+          <div class="projectSignal is-kaosan" aria-label="Kaosan Liveの体験イメージ">
+            <span class="projectSignal_label">talking avatar</span>
+            <span class="projectSignal_audio is-short"></span>
+            <span class="projectSignal_audio is-long"></span>
+            <span class="projectSignal_audio is-mid"></span>
+            <span class="projectSignal_avatar"></span>
+            <span class="projectSignal_mouth"></span>
+            <span class="projectSignal_status">mic / canvas</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="l-section">
+        <div class="l-inner l-gridType02">
+          <div class="projectStory">
+            <p class="projectStory_label">Direction</p>
+            <h2 class="projectStory_title">顔出しせずに、会議にいる感じを作る</h2>
+          </div>
+          <p class="c-textType01">
+            顔認識やカメラキャプチャは使わず、1枚の画像とマイク音声だけで、口、瞬き、顔全体の微細な動きを作ります。
+            個人用・単一イラスト前提に絞り、マイモデル初期値や調整UIを会議で使いやすい形へ寄せています。
+          </p>
+        </div>
+      </section>
+
+      <section class="l-section is-muted projectDetail">
+        <div class="l-inner l-gridType03">
+          <div class="c-panelType05">
+            <h2 class="c-panelType05_title">実装済み</h2>
+            <ul class="c-panelType05_list">
+              <li class="c-panelType05_item">Control WindowとOBSキャプチャ用Avatar Windowの2ウィンドウ構成</li>
+              <li class="c-panelType05_item">Web Audio APIでRMS、Peak、口開き、Talk、無音判定を解析・表示</li>
+              <li class="c-panelType05_item">Canvasで口消しパッチ、動的な口、瞬き、待機揺れを描画</li>
+            </ul>
+          </div>
+          <div class="c-panelType05">
+            <h2 class="c-panelType05_title">技術スタック</h2>
+            <ul class="c-panelType05_list">
+              <li class="c-panelType05_item">Electron / Vite / TypeScript</li>
+              <li class="c-panelType05_item">HTML Canvas / Web Audio API</li>
+              <li class="c-panelType05_item">BroadcastChannel / Electron IPC / JSON settings</li>
+            </ul>
+          </div>
+        </div>
+        <div class="l-inner">
+          <div class="projectMetrics" aria-label="Kaosan Liveの要点">
+            <div class="projectMetrics_item">
+              <span class="projectMetrics_value">1 image</span>
+              <span class="projectMetrics_label">単一イラストを会議向けに細かく調整</span>
+            </div>
+            <div class="projectMetrics_item">
+              <span class="projectMetrics_value">16:9</span>
+              <span class="projectMetrics_label">1280x720 / 1920x1080のAvatar出力</span>
+            </div>
+            <div class="projectMetrics_item">
+              <span class="projectMetrics_value">OBS</span>
+              <span class="projectMetrics_label">Window CaptureとVirtual CameraでZoomへ接続</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="l-footer is-project">
+      <div class="l-inner"><a class="c-buttonType01" href="/">TOP</a></div>
+    </footer>
+  </body>
+</html>

@@ -7,6 +7,7 @@
     <meta name="description" content="Web Quality Crawler introduction page: local-first quality crawler and dashboard.">
     <link rel="stylesheet" href="/common/css/common.css">
     <link rel="stylesheet" href="./css/this.css">
+    <script src="/js/orbit-nav.js" defer></script>
   </head>
   <body>
     <div class="c-ambientType01" aria-hidden="true">
@@ -15,24 +16,33 @@
       <span class="c-ambientType01_blob is-red"></span>
     </div>
 
-    <header class="l-header">
-      <nav class="l-inner l-nav" aria-label="Primary navigation">
-        <a class="c-brandType01" href="/">yamanari.dev</a>
-        <div class="c-globalNavType01">
-          <a class="c-globalNavType01_link" href="/web-quality-crawler/">Web Quality Crawler</a>
-          <a class="c-globalNavType01_link" href="/boarda/">Boarda</a>
-          <a class="c-globalNavType01_link" href="/idle-clock/">Idle Clock</a>
+    <nav class="c-orbitNav" aria-label="Site navigation" data-orbit-nav>
+      <div class="c-orbitNav_inner">
+        <input class="c-orbitNav_state" type="checkbox" id="orbit-nav-toggle" aria-label="メニューを開閉する">
+        <label class="c-orbitNav_toggle" for="orbit-nav-toggle">
+          <span class="c-orbitNav_label">menu</span>
+        </label>
+        <div class="c-orbitNav_menu">
+          <a class="c-orbitNav_link" href="/">Top</a>
+          <a class="c-orbitNav_link" href="/web-quality-crawler/">Crawler</a>
+          <a class="c-orbitNav_link" href="/boarda/">Boarda</a>
+          <a class="c-orbitNav_link" href="/idle-clock/">Clock</a>
+          <a class="c-orbitNav_link" href="/kaosan-live/">Kaosan</a>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
 
-    <main class="l-page">
-      <section class="l-section is-hero">
-        <div class="l-inner l-gridType01">
-          <div class="c-headingType01">
-            <p class="c-headingType01_label">Quality automation</p>
-            <h1 class="c-headingType01_title">Web Quality Crawler</h1>
-            <p class="c-headingType01_lead">
+    <main class="l-page projectPage">
+      <section class="l-section projectHero">
+        <div class="l-inner projectHero_layout">
+          <div>
+            <p class="projectHero_meta">
+              <span class="projectHero_number">01</span>
+              <span>Quality automation</span>
+              <span>Local production</span>
+            </p>
+            <h1 class="projectHero_title">Web Quality Crawler</h1>
+            <p class="projectHero_lead">
               決定的48ルールとAI 25ルールを同じスコアリング体系に載せ、
               検知箇所をスクリーンショット上のハイライトと改善提案へつなげます。
             </p>
@@ -40,21 +50,28 @@
               <a class="c-buttonType01" href="https://github.com/ryusei-jp-Y/web-quality-crawler">GitHub</a>
               <a class="c-buttonType02" href="https://web-quality-crawler.yamanari.dev">Dashboard</a>
             </div>
+            <dl class="projectFacts">
+              <div><dt>Status</dt><dd>Local production</dd></div>
+              <div><dt>Stack</dt><dd>Node / SQLite</dd></div>
+              <div><dt>Runtime</dt><dd>Express dashboard</dd></div>
+            </dl>
           </div>
-          <div class="c-panelType02" aria-label="評価カテゴリ">
-            <strong class="c-panelType02_score">73 rules</strong>
-            <span class="c-panelType02_meta">48 deterministic</span>
-            <span class="c-panelType02_meta">25 AI-assisted</span>
-            <span class="c-panelType02_meta">Lighthouse 4 categories</span>
+          <div class="projectSignal is-crawler" aria-label="評価カテゴリ">
+            <span class="projectSignal_label">scan matrix</span>
+            <div class="projectSignal_figure">
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </div>
+            <span class="projectSignal_status">73 rules</span>
           </div>
         </div>
       </section>
 
       <section class="l-section">
         <div class="l-inner l-gridType02">
-          <div class="c-headingType02">
-            <p class="c-headingType02_label">Use case</p>
-            <h2 class="c-headingType02_title">ローカルで動かし、必要な時だけ見せる</h2>
+          <div class="projectStory">
+            <p class="projectStory_label">Use case</p>
+            <h2 class="projectStory_title">ローカルで常用し、必要な時だけ外へ見せる</h2>
           </div>
           <p class="c-textType01">
             品質改善を継続的に回すWeb制作・運用チーム向けのローカル常用ツールです。
@@ -64,7 +81,7 @@
         </div>
       </section>
 
-      <section class="l-section is-muted">
+      <section class="l-section is-muted projectDetail">
         <div class="l-inner l-gridType03">
           <div class="c-panelType05">
             <h2 class="c-panelType05_title">技術ハイライト</h2>
@@ -83,11 +100,27 @@
             </ul>
           </div>
         </div>
+        <div class="l-inner">
+          <div class="projectMetrics" aria-label="Web Quality Crawlerの要点">
+            <div class="projectMetrics_item">
+              <span class="projectMetrics_value">48 + 25</span>
+              <span class="projectMetrics_label">決定的ルールとAI評価を同じ採点面へ統合</span>
+            </div>
+            <div class="projectMetrics_item">
+              <span class="projectMetrics_value">SQLite</span>
+              <span class="projectMetrics_label">評価結果とAI提案をローカルに蓄積</span>
+            </div>
+            <div class="projectMetrics_item">
+              <span class="projectMetrics_value">Tunnel</span>
+              <span class="projectMetrics_label">必要なレビュー時だけ外部へ公開</span>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
     <footer class="l-footer is-project">
-      <div class="l-inner"><a class="c-buttonType01" href="/">yamanari.devへ戻る</a></div>
+      <div class="l-inner"><a class="c-buttonType01" href="/">TOP</a></div>
     </footer>
   </body>
 </html>

@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Boarda | yamanari.dev</title>
-    <meta name="description" content="Boarda introduction page: a realtime board with one current note.">
+    <meta name="description" content="Boarda introduction page: a Cloudflare-first shared board where anonymous users place overlapping papers.">
     <link rel="stylesheet" href="/common/css/common.css">
     <link rel="stylesheet" href="./css/this.css">
+    <script src="/js/orbit-nav.js" defer></script>
   </head>
   <body>
     <div class="c-ambientType01" aria-hidden="true">
@@ -15,75 +16,108 @@
       <span class="c-ambientType01_blob is-red"></span>
     </div>
 
-    <header class="l-header">
-      <nav class="l-inner l-nav" aria-label="Primary navigation">
-        <a class="c-brandType01" href="/">yamanari.dev</a>
-        <div class="c-globalNavType01">
-          <a class="c-globalNavType01_link" href="/web-quality-crawler/">Web Quality Crawler</a>
-          <a class="c-globalNavType01_link" href="/boarda/">Boarda</a>
-          <a class="c-globalNavType01_link" href="/idle-clock/">Idle Clock</a>
+    <nav class="c-orbitNav" aria-label="Site navigation" data-orbit-nav>
+      <div class="c-orbitNav_inner">
+        <input class="c-orbitNav_state" type="checkbox" id="orbit-nav-toggle" aria-label="メニューを開閉する">
+        <label class="c-orbitNav_toggle" for="orbit-nav-toggle">
+          <span class="c-orbitNav_label">menu</span>
+        </label>
+        <div class="c-orbitNav_menu">
+          <a class="c-orbitNav_link" href="/">Top</a>
+          <a class="c-orbitNav_link" href="/web-quality-crawler/">Crawler</a>
+          <a class="c-orbitNav_link" href="/boarda/">Boarda</a>
+          <a class="c-orbitNav_link" href="/idle-clock/">Clock</a>
+          <a class="c-orbitNav_link" href="/kaosan-live/">Kaosan</a>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
 
-    <main class="l-page">
-      <section class="l-section is-hero">
-        <div class="l-inner l-gridType01">
-          <div class="c-headingType01">
-            <p class="c-headingType01_label">Realtime board</p>
-            <h1 class="c-headingType01_title">Boarda</h1>
-            <p class="c-headingType01_lead">
-              時系列の投稿一覧ではなく、今いちばん表に貼られている一枚だけを見る体験に絞った、
-              小さな共有場所です。
+    <main class="l-page projectPage">
+      <section class="l-section projectHero">
+        <div class="l-inner projectHero_layout">
+          <div>
+            <p class="projectHero_meta">
+              <span class="projectHero_number">02</span>
+              <span>Realtime board</span>
+              <span>Cloudflare v1</span>
+            </p>
+            <h1 class="projectHero_title">Boarda</h1>
+            <p class="projectHero_lead">
+              4000 × 3000 pxの一枚の共有掲示板へ、匿名ユーザーが紙を自由な位置に重ねて貼るWebアプリです。
+              投稿は時系列ではなく、座標と重なりとして残ります。
             </p>
             <div class="c-buttonGroup">
               <a class="c-buttonType01" href="https://boarda.yamanari.dev">Boarda app</a>
             </div>
+            <dl class="projectFacts">
+              <div><dt>Status</dt><dd>Cloudflare v1</dd></div>
+              <div><dt>Stack</dt><dd>Next / D1</dd></div>
+              <div><dt>Mode</dt><dd>Shared canvas</dd></div>
+            </dl>
           </div>
-          <div class="c-panelType03" aria-label="Boardaの体験イメージ">
-            <span class="c-panelType03_label">最新の紙</span>
-            <p class="c-panelType03_text">いま掲示板に貼られている一枚だけを、全員で見ています。</p>
+          <div class="projectSignal is-boarda" aria-label="Boardaの体験イメージ">
+            <span class="projectSignal_label">shared board</span>
+            <div class="projectSignal_figure">
+              <span class="projectSignal_note">好きな場所に、紙を重ねて貼る。</span>
+            </div>
+            <span class="projectSignal_status">100 posts</span>
           </div>
         </div>
       </section>
 
       <section class="l-section">
         <div class="l-inner l-gridType02">
-          <div class="c-headingType02">
-            <p class="c-headingType02_label">Concept</p>
-            <h2 class="c-headingType02_title">履歴ではなく、現在地を共有する</h2>
+          <div class="projectStory">
+            <p class="projectStory_label">Concept</p>
+            <h2 class="projectStory_title">一覧ではなく、空間として共有する</h2>
           </div>
           <p class="c-textType01">
-            軽い告知、作業中の合図、イベント中の一言掲示など、履歴より現在地を共有したい
-            場面向けのプロトタイプです。
+            Boardaは、投稿をリストで消費するのではなく、同じ大きな盤面の上に置かれた紙として見る体験に寄せています。
+            スクロール、ドラッグ、ピンチ、ミニマップで移動しながら、重なりや位置関係ごと共有します。
           </p>
         </div>
       </section>
 
-      <section class="l-section is-muted">
+      <section class="l-section is-muted projectDetail">
         <div class="l-inner l-gridType03">
           <div class="c-panelType05">
             <h2 class="c-panelType05_title">設計ポイント</h2>
             <ul class="c-panelType05_list">
               <li class="c-panelType05_item">匿名IDをHttpOnly Cookieで保持し、DBにはHMACハッシュのみ保存</li>
-              <li class="c-panelType05_item">5分間の編集制限をクライアントではなくDB/RPC側で判定</li>
-              <li class="c-panelType05_item">Supabase Realtimeで閲覧中の画面へ即時反映</li>
+              <li class="c-panelType05_item">最大100件の紙を座標、サイズ、重なり順ごとD1で管理</li>
+              <li class="c-panelType05_item">30秒polling、タブ復帰同期、取得失敗時の表示維持と再試行</li>
             </ul>
           </div>
           <div class="c-panelType05">
             <h2 class="c-panelType05_title">技術スタック</h2>
             <ul class="c-panelType05_list">
               <li class="c-panelType05_item">Next.js / React / TypeScript</li>
-              <li class="c-panelType05_item">Supabase PostgreSQL</li>
-              <li class="c-panelType05_item">Supabase Realtime</li>
+              <li class="c-panelType05_item">Cloudflare Workers / D1 / OpenNext</li>
+              <li class="c-panelType05_item">Cookie / HMAC / localStorage</li>
             </ul>
+          </div>
+        </div>
+        <div class="l-inner">
+          <div class="projectMetrics" aria-label="Boardaの要点">
+            <div class="projectMetrics_item">
+              <span class="projectMetrics_value">4000 x 3000</span>
+              <span class="projectMetrics_label">大きな共有ボードを移動・拡大縮小しながら閲覧</span>
+            </div>
+            <div class="projectMetrics_item">
+              <span class="projectMetrics_value">100 posts</span>
+              <span class="projectMetrics_label">古い紙から入れ替わる上限つきの共有空間</span>
+            </div>
+            <div class="projectMetrics_item">
+              <span class="projectMetrics_value">HMAC</span>
+              <span class="projectMetrics_label">匿名Cookieとハッシュで投稿制限と管理を成立</span>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="l-footer is-project">
-      <div class="l-inner"><a class="c-buttonType01" href="/">yamanari.devへ戻る</a></div>
+      <div class="l-inner"><a class="c-buttonType01" href="/">TOP</a></div>
     </footer>
   </body>
 </html>

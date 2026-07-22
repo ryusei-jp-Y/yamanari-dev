@@ -215,6 +215,9 @@
 .projectRow:nth-child(3) {
   --project-color: #c084fc;
 }
+.projectRow:nth-child(4) {
+  --project-color: #ef4444;
+}
 @media (hover: hover) {
   .projectRow:hover {
     background: rgba(255, 255, 255, 0.48);
@@ -407,6 +410,61 @@
   right: -6px;
   animation: clock-ripple-right 7.2s ease-out infinite;
 }
+.projectVisual.is-kaosan {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(90deg, rgba(252, 165, 165, 0.14), rgba(255, 255, 255, 0.18)), rgba(255, 255, 255, 0.72);
+}
+.projectVisual.is-kaosan::before {
+  position: absolute;
+  inset: 18px 14px;
+  border: 1px solid rgba(239, 68, 68, 0.24);
+  content: "";
+}
+.projectVisual_face {
+  position: relative;
+  z-index: 2;
+  width: 36px;
+  height: 44px;
+  border: 2px solid #ef4444;
+  border-radius: 46% 54% 52% 48%;
+  animation: kaosan-face 4.8s ease-in-out infinite;
+}
+.projectVisual_face::before, .projectVisual_face::after {
+  position: absolute;
+  top: 16px;
+  width: 6px;
+  height: 1px;
+  background: #ef4444;
+  content: "";
+}
+.projectVisual_face::before {
+  left: 8px;
+}
+.projectVisual_face::after {
+  right: 8px;
+}
+.projectVisual_wave {
+  position: absolute;
+  z-index: 1;
+  left: 18px;
+  width: 28px;
+  height: 1px;
+  background: #ef4444;
+  opacity: 0.48;
+  animation: kaosan-wave 2.8s ease-in-out infinite;
+}
+.projectVisual_wave:nth-of-type(2) {
+  top: 31px;
+}
+.projectVisual_wave:nth-of-type(3) {
+  top: 44px;
+  animation-delay: -0.7s;
+}
+.projectVisual_wave:nth-of-type(4) {
+  top: 57px;
+  animation-delay: -1.4s;
+}
 .projectVisual_time {
   position: relative;
   z-index: 2;
@@ -598,6 +656,24 @@
   }
   50% {
     transform: translateY(4px);
+  }
+}
+@keyframes kaosan-face {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(2deg);
+  }
+}
+@keyframes kaosan-wave {
+  0%, 100% {
+    transform: scaleX(0.6);
+    opacity: 0.24;
+  }
+  50% {
+    transform: scaleX(1.15);
+    opacity: 0.7;
   }
 }
 @keyframes clock-object-bounce {
