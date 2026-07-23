@@ -142,22 +142,165 @@
 
   &.is-boarda {
     .projectSignal_figure {
-      display: grid;
-      place-items: center;
+      inset: 66px 26px 54px;
+      overflow: hidden;
+      background-color: #e7e8e6;
+      background-image:
+        radial-gradient(circle at 15% 22%, rgba($color-white, 0.25) 0 1px, transparent 1.2px),
+        radial-gradient(circle at 72% 68%, rgba(35, 40, 37, 0.045) 0 0.7px, transparent 1px),
+        linear-gradient(105deg, transparent 0 49.7%, rgba($color-white, 0.08) 50%, transparent 50.3%);
+      background-size: 37px 41px, 29px 31px, 190px 190px;
     }
 
-    .projectSignal_note {
-      width: min(220px, 72%);
-      min-height: 168px;
-      border: 1px solid rgba($color-blue-600, 0.28);
-      border-radius: $radius-small;
-      padding: 22px;
-      background: rgba($color-white, 0.76);
-      box-shadow: $box-shadow-normal;
-      color: $color-text-main;
-      font-weight: $font-weight-bold;
-      line-height: 1.7;
-      transform: rotate(-2deg);
+    .projectSignal_paper {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      border: 1px solid rgba(49, 52, 50, 0.18);
+      border-radius: 2px;
+      box-shadow: 0 2px 4px rgba(30, 34, 31, 0.12), 0 9px 22px rgba(30, 34, 31, 0.08);
+      color: #303332;
+      animation: project-boarda-paper 5.6s ease-in-out infinite;
+
+      &::before {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: repeating-linear-gradient(87deg, rgba(45, 50, 47, 0.015) 0 1px, transparent 1px 5px);
+        content: "";
+      }
+
+      &.is-white {
+        background: #fdfdf9;
+      }
+
+      &.is-gray {
+        background: #f0f2f2;
+      }
+
+      &.is-large {
+        top: 18px;
+        left: 45px;
+        z-index: 2;
+        width: 220px;
+        min-height: 138px;
+        padding: 27px 20px 16px;
+        transform: rotate(-2deg);
+      }
+
+      &.is-medium {
+        right: 32px;
+        top: 98px;
+        z-index: 3;
+        width: 190px;
+        min-height: 126px;
+        padding: 25px 18px 15px;
+        animation-delay: -1.8s;
+        transform: rotate(2deg);
+      }
+
+      &.is-small {
+        bottom: 18px;
+        left: 22px;
+        z-index: 1;
+        width: 150px;
+        min-height: 96px;
+        padding: 23px 16px 13px;
+        animation-delay: -3.2s;
+        transform: rotate(4deg);
+      }
+    }
+
+    .projectSignal_pins {
+      position: absolute;
+      top: 9px;
+      left: 50%;
+      display: flex;
+      width: calc(100% - 40px);
+      justify-content: space-between;
+      transform: translateX(-50%);
+
+      &::before,
+      &::after {
+        display: block;
+        width: 8px;
+        height: 4px;
+        border-radius: 50%;
+        background: #444745;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+        content: "";
+      }
+    }
+
+    .projectSignal_message,
+    .projectSignal_meta {
+      position: relative;
+      z-index: 1;
+    }
+
+    .projectSignal_message {
+      display: -webkit-box;
+      margin: 0;
+      overflow: hidden;
+      overflow-wrap: anywhere;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+      font-size: 14px;
+      line-height: 1.6;
+      white-space: normal;
+    }
+
+    .projectSignal_meta {
+      margin-top: 8px;
+      overflow: hidden;
+      color: #616563;
+      font-size: 11px;
+      line-height: 1.4;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    @include responsive("sp") {
+      .projectSignal_figure {
+        inset: 58px 18px 46px;
+      }
+
+      .projectSignal_paper {
+        &.is-large {
+          top: 16px;
+          left: 18px;
+          width: 172px;
+          min-height: 112px;
+          padding: 24px 16px 13px;
+        }
+
+        &.is-medium {
+          right: 14px;
+          top: 92px;
+          width: 154px;
+          min-height: 104px;
+          padding: 23px 15px 12px;
+        }
+
+        &.is-small {
+          bottom: 12px;
+          left: 12px;
+          width: 124px;
+          min-height: 82px;
+          padding: 21px 13px 10px;
+        }
+      }
+
+      .projectSignal_message {
+        font-size: 12px;
+        -webkit-line-clamp: 4;
+      }
+
+      .projectSignal_meta {
+        font-size: 10px;
+      }
     }
   }
 
@@ -188,24 +331,34 @@
     display: grid;
     place-items: center;
 
-    .projectSignal_avatar {
+    .projectSignal_stage {
+      position: relative;
       z-index: 1;
-      width: 118px;
-      height: 142px;
-      border: 2px solid $color-red-500;
-      border-radius: 46% 54% 52% 48%;
-      background: rgba($color-white, 0.54);
-      transform: rotate(-2deg);
+      width: min(330px, 78%);
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border: 1px solid rgba($color-red-500, 0.28);
+      border-radius: $radius-small;
+      background: $color-white;
+      box-shadow: $box-shadow-normal;
+
+      &::before {
+        position: absolute;
+        inset: 12px;
+        border: 1px solid rgba($color-red-500, 0.14);
+        content: "";
+      }
     }
 
-    .projectSignal_mouth {
+    .projectSignal_avatarImage {
       position: absolute;
-      z-index: 2;
-      width: 34px;
-      height: 12px;
-      border-bottom: 2px solid $color-red-500;
-      border-radius: 50%;
-      transform: translateY(34px);
+      left: 50%;
+      top: 50%;
+      z-index: 1;
+      width: 178px;
+      max-width: none;
+      transform: translate(-50%, -50%);
+      animation: project-kaosan-idle 4.8s ease-in-out infinite;
     }
 
     .projectSignal_audio {
@@ -244,6 +397,16 @@
       font-size: 52px;
     }
   }
+}
+
+@keyframes project-kaosan-idle {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0) rotate(-0.6deg); }
+  50% { transform: translate(-50%, -50%) translateY(-4px) rotate(0.6deg); }
+}
+
+@keyframes project-boarda-paper {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.025); }
 }
 
 .projectFacts {

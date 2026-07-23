@@ -25,6 +25,7 @@ grep -q 'href="/boarda/"' htdocs/index.html
 grep -q 'href="/idle-clock/"' htdocs/index.html
 grep -q 'href="/kaosan-live/"' htdocs/index.html
 grep -q 'src="/js/orbit-nav.js"' htdocs/index.html
+grep -q 'src="/images/kaosan-live/face.jpeg"' htdocs/index.html
 grep -q 'src="/js/instagram-feed.js"' htdocs/index.html
 grep -q 'data-instagram-feed' htdocs/index.html
 
@@ -43,6 +44,7 @@ test -f htdocs/_components/index.html
 test -f htdocs/_components/scss/this.scss
 test -f htdocs/_components/css/this.css
 test -f htdocs/_headers
+test -f htdocs/images/kaosan-live/face.jpeg
 test -f htdocs/js/orbit-nav.js
 test -f htdocs/js/instagram-feed.js
 test -f worker/index.mjs

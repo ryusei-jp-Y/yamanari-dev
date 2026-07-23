@@ -390,18 +390,14 @@ $color-idle-object-warm: #ff9ca8;
   }
 
   &.is-boarda {
-    display: grid;
-    place-items: center;
-  }
-
-  &_note {
-    z-index: 1;
-    border: 1px solid $color-divider-strong;
-    padding: 9px 16px;
-    background: $color-base-surface-solid;
-    font-size: 12px;
-    font-weight: $font-weight-bold;
-    animation: boarda-note 5s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+    background-color: #e7e8e6;
+    background-image:
+      radial-gradient(circle at 15% 22%, rgba($color-white, 0.25) 0 1px, transparent 1.2px),
+      radial-gradient(circle at 72% 68%, rgba(35, 40, 37, 0.045) 0 0.7px, transparent 1px),
+      linear-gradient(105deg, transparent 0 49.7%, rgba($color-white, 0.08) 50%, transparent 50.3%);
+    background-size: 37px 41px, 29px 31px, 190px 190px;
   }
 
   &_line {
@@ -409,7 +405,88 @@ $color-idle-object-warm: #ff9ca8;
     right: 0;
     left: 0;
     height: 1px;
-    background: $color-blue-600;
+    background: rgba(48, 51, 50, 0.16);
+  }
+
+  &_paper {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    width: 112px;
+    height: 72px;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(49, 52, 50, 0.18);
+    border-radius: 2px;
+    padding: 18px 11px 9px;
+    box-shadow: 0 2px 4px rgba(30, 34, 31, 0.12), 0 9px 22px rgba(30, 34, 31, 0.08);
+    color: #303332;
+    animation: boarda-note 5s ease-in-out infinite;
+
+    &::before {
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(87deg, rgba(45, 50, 47, 0.015) 0 1px, transparent 1px 5px);
+      content: "";
+    }
+
+    &.is-white {
+      right: 26px;
+      top: 19px;
+      background: #fdfdf9;
+      transform: rotate(-2deg);
+    }
+
+    &.is-gray {
+      right: 86px;
+      bottom: 15px;
+      width: 96px;
+      height: 62px;
+      background: #f0f2f2;
+      animation-delay: -1.8s;
+      transform: rotate(3deg);
+    }
+  }
+
+  &_pins {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    display: flex;
+    width: calc(100% - 28px);
+    justify-content: space-between;
+    transform: translateX(-50%);
+
+    &::before,
+    &::after {
+      display: block;
+      width: 7px;
+      height: 4px;
+      border-radius: 50%;
+      background: #444745;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+      content: "";
+    }
+  }
+
+  &_message,
+  &_meta {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &_message {
+    font-size: 11px;
+    font-weight: $font-weight-bold;
+    line-height: 1.45;
+  }
+
+  &_meta {
+    color: #616563;
+    font-size: 9px;
   }
 
   &.is-clock {
@@ -445,7 +522,7 @@ $color-idle-object-warm: #ff9ca8;
 
   &.is-kaosan {
     display: grid;
-    place-items: center;
+    place-items: center end;
     background:
       linear-gradient(90deg, rgba($color-red-300, 0.14), rgba($color-white, 0.18)),
       $color-base-surface;
@@ -458,39 +535,33 @@ $color-idle-object-warm: #ff9ca8;
     }
   }
 
-  &_face {
+  &_avatar {
     position: relative;
     z-index: 2;
-    width: 36px;
-    height: 44px;
-    border: 2px solid $color-red-500;
-    border-radius: 46% 54% 52% 48%;
+    display: block;
+    width: 78px;
+    aspect-ratio: 1;
+    margin-right: 6px;
+    overflow: hidden;
+    border: 1px solid rgba($color-red-500, 0.18);
+    border-radius: $radius-small;
+    background: $color-white;
+    box-shadow: 0 10px 24px rgba($color-red-500, 0.12);
     animation: kaosan-face 4.8s ease-in-out infinite;
 
-    &::before,
-    &::after {
-      position: absolute;
-      top: 16px;
-      width: 6px;
-      height: 1px;
-      background: $color-red-500;
-      content: "";
-    }
-
-    &::before {
-      left: 8px;
-    }
-
-    &::after {
-      right: 8px;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
   }
 
   &_wave {
     position: absolute;
     z-index: 1;
-    left: 18px;
-    width: 28px;
+    left: 16px;
+    width: 34px;
     height: 1px;
     background: $color-red-500;
     opacity: 0.48;
